@@ -3,6 +3,7 @@ package baseball.view;
 import baseball.common.Messages;
 import baseball.model.Balls;
 import baseball.model.Computer;
+import baseball.model.GameOption;
 import baseball.model.InputNumber;
 import baseball.model.Player;
 import nextstep.utils.Console;
@@ -27,6 +28,10 @@ public class BaseballGame implements Game {
     @Override
     public void finish() {
         System.out.println(Messages.CORRECT_ANSWER);
+        System.out.println(Messages.SELECT_GAME_OPTION);
+
+        GameOption gameOption = GameOption.of(Console.readLine());
+        if (gameOption.isRestart()) start();
     }
 
     private Balls getComputerBalls() {

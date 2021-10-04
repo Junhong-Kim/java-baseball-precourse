@@ -1,6 +1,7 @@
 package baseball.view;
 
 import baseball.common.Messages;
+import baseball.model.Balls;
 import baseball.model.Computer;
 import baseball.model.InputNumber;
 import baseball.model.Player;
@@ -14,9 +15,13 @@ public class BaseballGame implements Game {
     @Override
     public void start() {
         computer.initNumbers();
+        Balls computerBalls = new Balls(computer.getNumbers());
 
         InputNumber inputNumber = getInputNumber();
         player.initNumbers(inputNumber);
+        Balls playerBalls = new Balls(player.getNumbers());
+        BaseballGameResult result = computerBalls.play(playerBalls);
+        System.out.println(result.toString());
     }
 
     private InputNumber getInputNumber() {

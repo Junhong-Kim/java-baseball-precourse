@@ -11,4 +11,8 @@ public class Messages {
     // ERROR
     public static final String INVALID_INPUT = "[ERROR] 유효하지 않은 입력 값 입니다.";
     public static final String INPUT_IS_NOT_NUMBER = "[ERROR] 입력 값이 숫자가 아닙니다.";
+
+    public static String getBallCount(int ballListSize) {
+        return String.format("Ball 개수는 %d개여야합니다.", ballListSize);
+    }
 }

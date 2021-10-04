@@ -14,14 +14,30 @@ public class BaseballGame implements Game {
 
     @Override
     public void start() {
-        computer.initNumbers();
-        Balls computerBalls = new Balls(computer.getNumbers());
+        Balls computerBalls = getComputerBalls();
+        BaseballGameResult result;
+        do {
+            Balls playerBalls = getPlayerBalls();
+            result = computerBalls.play(playerBalls);
+            System.out.println(result.toString());
+        } while (result.getStrike() != Balls.MAX_SIZE);
+        finish();
+    }
 
+    @Override
+    public void finish() {
+        System.out.println(Messages.CORRECT_ANSWER);
+    }
+
+    private Balls getComputerBalls() {
+        computer.initNumbers();
+        return new Balls(computer.getNumbers());
+    }
+
+    private Balls getPlayerBalls() {
         InputNumber inputNumber = getInputNumber();
         player.initNumbers(inputNumber);
-        Balls playerBalls = new Balls(player.getNumbers());
-        BaseballGameResult result = computerBalls.play(playerBalls);
-        System.out.println(result.toString());
+        return new Balls(player.getNumbers());
     }
 
     private InputNumber getInputNumber() {

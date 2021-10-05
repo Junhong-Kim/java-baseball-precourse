@@ -12,10 +12,6 @@ public class Balls {
 
     private final List<Ball> ballList = new ArrayList<>();
 
-    public List<Ball> getBallList() {
-        return ballList;
-    }
-
     public Balls(List<Integer> numbers) {
         if (numbers.size() != MAX_SIZE) {
             throw new IllegalArgumentException(Messages.getBallCount(MAX_SIZE));
@@ -29,16 +25,17 @@ public class Balls {
         BaseballGameResult baseballGameResult = new BaseballGameResult();
         for (Ball ball : ballList) {
             BallResult result = balls.play(ball);
-            baseballGameResult.setResult(result);
+            baseballGameResult.addStrikeOrBall(result);
         }
         return baseballGameResult;
     }
 
     private BallResult play(Ball inputBall) {
-        return ballList.stream()
-                .map(ball -> ball.play(inputBall))
-                .filter(result -> result != BallResult.NOTHING)
-                .findFirst()
-                .orElse(BallResult.NOTHING);
+        BallResults ballResults = new BallResults();
+        for (Ball ball : ballList) {
+            BallResult result = ball.play(inputBall);
+            ballResults.addResult(result);
+        }
+        return ballResults.getBallResult();
     }
 }

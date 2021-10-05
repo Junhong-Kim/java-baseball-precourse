@@ -4,6 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
@@ -51,5 +54,24 @@ class InputNumberTest {
 
         // then
         assertThat(inputNumber.isValid()).isFalse();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"123", "456", "789"})
+    @DisplayName("toList 테스트")
+    void toList_test(String input) {
+        // given
+        InputNumber inputNumber = new InputNumber(input);
+        List<Integer> list = inputNumber.toList();
+
+        List<Integer> compareList = new ArrayList<>();
+        for (String str : input.split("")) {
+            compareList.add(Integer.parseInt(str));
+        }
+
+        // when
+        // then
+        assertThat(list.containsAll(compareList)).isTrue();
+        assertThat(list.size()).isEqualTo(input.length());
     }
 }

@@ -2,7 +2,9 @@ package baseball.model;
 
 import baseball.utils.StringUtils;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class InputNumber {
@@ -19,8 +21,14 @@ public class InputNumber {
         number = Integer.parseInt(input);
     }
 
-    public int getNumber() {
-        return number;
+    public List<Integer> toList() {
+        List<Integer> list = new ArrayList<>();
+
+        String stringNumber = Integer.toString(number);
+        for (String str : stringNumber.split("")) {
+            list.add(Integer.parseInt(str));
+        }
+        return list;
     }
 
     public boolean isValid() {

@@ -15,7 +15,7 @@ public class BaseballGameResult {
         return ball;
     }
 
-    public void setResult(BallResult result) {
+    public void addStrikeOrBall(BallResult result) {
         if (result == BallResult.STRIKE) strike++;
         if (result == BallResult.BALL) ball++;
     }

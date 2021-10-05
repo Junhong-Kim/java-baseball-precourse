@@ -1,5 +1,6 @@
 package baseball.model;
 
+import baseball.common.Messages;
 import baseball.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class InputNumber {
 
     public InputNumber(String input) {
         if (!StringUtils.isNumber(input)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Messages.INPUT_IS_NOT_NUMBER);
         }
         number = Integer.parseInt(input);
     }

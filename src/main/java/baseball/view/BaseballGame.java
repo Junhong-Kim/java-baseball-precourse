@@ -59,7 +59,7 @@ public class BaseballGame implements Game {
             System.out.print(Messages.READ_INPUT);
             return new InputNumber(Console.readLine());
         } catch (IllegalArgumentException e) {
-            System.out.println(Messages.INPUT_IS_NOT_NUMBER);
+            System.out.println(e.getMessage());
             return getInputNumber();
         }
     }

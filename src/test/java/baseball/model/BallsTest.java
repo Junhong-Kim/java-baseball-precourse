@@ -1,6 +1,5 @@
 package baseball.model;
 
-import baseball.view.BaseballGameResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

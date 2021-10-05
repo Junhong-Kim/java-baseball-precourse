@@ -1,6 +1,6 @@
 package baseball.model;
 
-import baseball.common.Messages;
+import baseball.constant.Messages;
 
 public enum GameOption {
 

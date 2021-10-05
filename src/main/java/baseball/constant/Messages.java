@@ -1,4 +1,4 @@
-package baseball.common;
+package baseball.constant;
 
 public class Messages {
 

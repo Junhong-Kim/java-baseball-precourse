@@ -1,6 +1,6 @@
 package baseball.model;
 
-import baseball.common.Messages;
+import baseball.constant.Messages;
 
 import java.util.ArrayList;
 import java.util.List;

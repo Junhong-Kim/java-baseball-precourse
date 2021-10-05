@@ -1,7 +1,8 @@
 package baseball.view;
 
-import baseball.common.Messages;
+import baseball.constant.Messages;
 import baseball.model.Balls;
+import baseball.model.BaseballGameResult;
 import baseball.model.Computer;
 import baseball.model.GameOption;
 import baseball.model.InputNumber;

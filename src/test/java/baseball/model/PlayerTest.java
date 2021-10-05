@@ -1,6 +1,6 @@
 package baseball.model;
 
-import baseball.common.Messages;
+import baseball.constant.Messages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

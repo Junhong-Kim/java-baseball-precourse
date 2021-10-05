@@ -1,6 +1,4 @@
-package baseball.view;
-
-import baseball.model.BallResult;
+package baseball.model;
 
 public class BaseballGameResult {
 
